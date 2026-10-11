@@ -152,8 +152,8 @@ Model results should not be interpreted causally or used to reduce investigative
 - Matplotlib
 - Jupyter Notebook
 
-## Data references
+## Data sources
 
-- National Incident-Based Reporting System, 2023, ICPSR Study 39270.
-- McEwen, J. Thomas. *Evaluation of the Phoenix, Arizona, Homicide Clearance Initiative, 2003–2005*, ICPSR Study 26081.
-- Murder Accountability Project, amplified Supplementary Homicide Report data.
+The project currently uses the NIBRS 2023 incident-level file distributed by ICPSR. The Phoenix Homicide Clearance Initiative and Murder Accountability Project amplified SHR data are documented as possible sources for later, separate analyses; they have not yet been integrated into the model.
+
+See [DATA_SOURCES.md](DATA_SOURCES.md) for dataset pages, DOIs, coverage periods, exact files, access information, and cross-dataset limitations.

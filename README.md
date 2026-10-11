@@ -28,6 +28,41 @@ Development currently focuses on the 2023 National Incident-Based Reporting Syst
 
 These sources use different time periods, units of observation, geographic coverage, and definitions of clearance. They will not be combined until their outcome definitions and records can be compared responsibly.
 
+## Three-layer project design
+
+The datasets will play complementary roles rather than being merged automatically into one table.
+
+```mermaid
+flowchart TB
+    subgraph L1["Layer 1 — Primary ML project"]
+        N[NIBRS 2023] --> P[Large-file extraction and validation]
+        P --> T[Target definition and leakage review]
+        T --> M[Preprocessing, modeling, and evaluation]
+    end
+
+    subgraph L2["Layer 2 — Supporting studies"]
+        PHX[Phoenix clearance study] --> PA[Investigative factors and evidence]
+        SHR[MAP amplified SHR] --> HA[Historical solved-status patterns]
+    end
+
+    M --> C[Layer 3 — Cross-dataset comparison]
+    PA --> C
+    HA --> C
+    C --> F[Compare definitions, patterns, limitations, and findings]
+```
+
+### Layer 1: Primary ML project
+
+NIBRS 2023 is the primary dataset for developing the end-to-end machine learning workflow. It provides the scale needed to demonstrate large-file processing, data validation, target construction, leakage-safe feature selection, model training, and evaluation.
+
+### Layer 2: Supporting studies
+
+The Phoenix dataset will support a focused analysis of investigative resources, evidence, and case outcomes. The MAP/SHR dataset may support a separate historical analysis of reported solved status. Each source will retain its own outcome definition and analytical pipeline.
+
+### Layer 3: Cross-dataset comparison
+
+The final stage will compare findings across the three analyses without assuming that *cleared*, *closed*, and *solved* mean exactly the same thing. The comparison will focus on compatible variables, recurring patterns, differences in outcome definitions, and the limitations of each source.
+
 ## Current dataset: NIBRS 2023
 
 The active dataset is the incident-level file from **National Incident-Based Reporting System, 2023 (ICPSR 39270)**.
@@ -97,6 +132,7 @@ homicide-clearance-ml/
 ├── notebooks/
 │   └── 01_nibrs_data_feasibility.ipynb
 ├── .gitignore
+├── DATA_SOURCES.md
 ├── README.md
 └── requirements.txt
 ```

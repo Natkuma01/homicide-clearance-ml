@@ -1,5 +1,7 @@
 # Homicide Clearance Prediction in the United States
 
+![Investigator reviewing homicide evidence alongside a visualization of cleared and uncleared cases](assets/predicting-homicide-case-clearances.png)
+
 > **Project status:** Work in progress
 
 | Date | What is done |
